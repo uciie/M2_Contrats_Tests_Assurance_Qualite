@@ -25,3 +25,6 @@
 - [ ] 13- `AllVersionsResolver` (`IResolver`) : calculer la fermeture transitive à partir des dépendances directes, en interrogeant le registre
 - [ ] 14- `AllVersionsResolver` : conserver toutes les versions en cas de conflit (pas de résolution)
 - [ ] 15- `BuildTool` : enchaîner parse (`IPomParser`) puis resolve (`IResolver`)
+
+**Question 5**
+> La chaîne d'entrée "org.acme:lib-a:1.0.0" apparait dans le code et dans le test. Cependant la méthode doit fonctionner pour n'importe quelle chaine de coordonées et non en trichant. Il faut implémenter la logique du parsing.
