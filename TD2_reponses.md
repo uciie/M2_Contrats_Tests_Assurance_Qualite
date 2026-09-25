@@ -29,3 +29,6 @@
 **Question 5**
 > La chaîne d'entrée "org.acme:lib-a:1.0.0" apparait dans le code et dans le test. Cependant la méthode doit fonctionner pour n'importe quelle chaine de coordonées et non en trichant. Il faut implémenter la logique du parsing.
 
+**Question 7**
+> "org.acme:lib-a:1.0.0" et "org.other:lib-c:3.0.0" appartiennent à la même classe car elles sont toutes les deux des chaînes valides.
+> En ajoutant un second exemple avec des valeurs différentes mais dans la même classe, on élimine la possibilité de tricher
