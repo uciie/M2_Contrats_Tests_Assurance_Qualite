@@ -10,7 +10,7 @@
 
 **Question 3**
 
-- [ ] 1- `Gav` : parser une chaîne "group:artifact:version" en ses trois composants
+- [x] 1- `Gav` : parser une chaîne "group:artifact:version" en ses trois composants
 - [ ] 2- `Gav` : lever une exception si la chaîne est mal formée
 - [ ] 3- `Artifact` : record { coordonnée Gav, ensemble des Gav dont il dépend directement }
 - [ ] 4- `Project` : record { nom, ensemble des Gav des dépendances directes }
@@ -28,3 +28,4 @@
 
 **Question 5**
 > La chaîne d'entrée "org.acme:lib-a:1.0.0" apparait dans le code et dans le test. Cependant la méthode doit fonctionner pour n'importe quelle chaine de coordonées et non en trichant. Il faut implémenter la logique du parsing.
+
