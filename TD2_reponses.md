@@ -11,7 +11,7 @@
 **Question 3**
 
 - [x] 1- `Gav` : parser une chaîne "group:artifact:version" en ses trois composants
-- [ ] 2- `Gav` : lever une exception si la chaîne est mal formée (null, vide, ou ne contient pas exactement trois segments non vides séparés par ':')
+- [x] 2- `Gav` : lever une exception si la chaîne est mal formée (null, vide, ne contient pas exactement trois segments non vides séparés par ':', ou contient des segments composés que d'espace)
 - [ ] 3- `Artifact` : record { coordonnée Gav, ensemble des Gav dont il dépend directement }
 - [ ] 4- `Project` : record { nom, ensemble des Gav des dépendances directes }
 - [ ] 5- `BufferedLineReader` (`ILineReader`) : lire un flux ligne à ligne via BufferedReader
@@ -43,3 +43,4 @@
 |5| Trop de segments (plus de deux `:`)| "org.acme:lib-a:1.0.0:extra"|
 |6| Un segment vide (groupe, artefact ou version)| "org.acme::1.0.0", ":lib-a:1.0.0", "org.acme:lib-a:"|
 |7| Chaîne composée uniquement d'espaces |" "|
+|8| Un segment non vide mais uniquement composé d'espaces |" : : ", "org.acme:  :1.0.0"|
