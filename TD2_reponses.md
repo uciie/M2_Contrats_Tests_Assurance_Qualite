@@ -11,7 +11,7 @@
 **Question 3**
 
 - [x] 1- `Gav` : parser une chaîne "group:artifact:version" en ses trois composants
-- [ ] 2- `Gav` : lever une exception si la chaîne est mal formée
+- [ ] 2- `Gav` : lever une exception si la chaîne est mal formée (null, vide, ou ne contient pas exactement trois segments non vides séparés par ':')
 - [ ] 3- `Artifact` : record { coordonnée Gav, ensemble des Gav dont il dépend directement }
 - [ ] 4- `Project` : record { nom, ensemble des Gav des dépendances directes }
 - [ ] 5- `BufferedLineReader` (`ILineReader`) : lire un flux ligne à ligne via BufferedReader
@@ -32,3 +32,14 @@
 **Question 7**
 > "org.acme:lib-a:1.0.0" et "org.other:lib-c:3.0.0" appartiennent à la même classe car elles sont toutes les deux des chaînes valides.
 > En ajoutant un second exemple avec des valeurs différentes mais dans la même classe, on élimine la possibilité de tricher
+
+**Question 9**
+||Classe d'équivalence invalide| Exemple|
+|-|-|-|
+|1| Chaîne null| null|
+|2| Chaîne vide| ""|
+|3| Pas assez de segments (aucun `:`)| "org.acme"|
+|4| Pas assez de segments (un seul `:`)| "org.acme:lib-a"|
+|5| Trop de segments (plus de deux `:`)| "org.acme:lib-a:1.0.0:extra"|
+|6| Un segment vide (groupe, artefact ou version)| "org.acme::1.0.0", ":lib-a:1.0.0", "org.acme:lib-a:"|
+|7| Chaîne composée uniquement d'espaces |" "|

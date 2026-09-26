@@ -3,6 +3,7 @@ package org.example;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GavTest {
 
@@ -17,5 +18,17 @@ class GavTest {
         assertEquals(expectedGroup, gav.group(), "The group should be " + expectedGroup);
         assertEquals(expectedArtifact, gav.artifact(), "The artifact should be " + expectedArtifact);
         assertEquals(expectedVersion, gav.version(), "The version should be " + expectedVersion);
+    }
+
+    /**
+     * Construit une coordonnée à partir d'une chaîne invalide
+     * Verifier que la méthode parse lance une exception
+     */
+    @ParameterizedTest
+    @CsvFileSource(resources = "/invalidGavData.csv")
+    void constructInvalidGavCheckException(String gavString) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Gav.parse(gavString);
+        }, "Expected parse() to throw, but it didn't");
     }
 }
