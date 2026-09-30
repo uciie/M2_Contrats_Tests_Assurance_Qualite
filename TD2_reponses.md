@@ -49,3 +49,30 @@
 > Ici, `BufferedLineReader` n'a aucune logique propre : c'est une simple délégation vers une classe déja approuvée.
 > 
 > TDD : il est surtout utile là où il y a une incertitude sur le comportement à spécifier.
+
+**Question 12**
+> demo_fail_assertEquals()
+```
+org.opentest4j.AssertionFailedError: The group should be org.acme ==> expected: <com.example> but was: <org.acme>
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at app//org.example.GavTest.demo_fail_assertEquals(GavTest.java:58)
+	at java.base@21.0.12.1/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.12.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.12.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+```
+> demo_fail_assertThat()
+```
+java.lang.AssertionError: The group should be org.acme
+Expected: is "com.example"
+     but: was "org.acme"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.example.GavTest.demo_fail_assertThat(GavTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+```
+> La structure des deux message est similaire. On sait ce qu'on devait attendre en sortie et ce qu'on mit en entrée.
