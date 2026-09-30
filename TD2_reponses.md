@@ -12,10 +12,10 @@
 
 - [x] 1- `Gav` : parser une chaîne "group:artifact:version" en ses trois composants
 - [x] 2- `Gav` : lever une exception si la chaîne est mal formée (null, vide, ne contient pas exactement trois segments non vides séparés par ':', ou contient des segments composés que d'espace)
-- [ ] 3- `Artifact` : record { coordonnée Gav, ensemble des Gav dont il dépend directement }
+- [x] 3- `Artifact` : record { coordonnée Gav, ensemble des Gav dont il dépend directement }
 - [ ] 4- `Project` : record { nom, ensemble des Gav des dépendances directes }
 - [ ] 5- `BufferedLineReader` (`ILineReader`) : lire un flux ligne à ligne via BufferedReader
-- [ ] 6- `InMemoryStorage` (`IStorage`) : put(gav, artifact) / get(gav) -> Optional
+- [x] 6- `InMemoryStorage` (`IStorage`) : put(gav, artifact) / get(gav) -> Optional
 - [ ] 7- `StorageBasedRegistry` (`IRegistry`) : publish(artifact), avec refus si coordonnée déjà publiée
 - [ ] 8- `StorageBasedRegistry` (`IRegistry`) : lookup(gav) -> Optional<Artifact>
 - [ ] 9- `LineBasedPomParser` (`IPomParser`) : parser la ligne "project <nom>"
@@ -44,3 +44,8 @@
 |6| Un segment vide (groupe, artefact ou version)| "org.acme::1.0.0", ":lib-a:1.0.0", "org.acme:lib-a:"|
 |7| Chaîne composée uniquement d'espaces |" "|
 |8| Un segment non vide mais uniquement composé d'espaces |" : : ", "org.acme:  :1.0.0"|
+
+**Question 11**
+> Ici, `BufferedLineReader` n'a aucune logique propre : c'est une simple délégation vers une classe déja approuvée.
+> 
+> TDD : il est surtout utile là où il y a une incertitude sur le comportement à spécifier.
